@@ -47,6 +47,11 @@
       </el-aside>
       <!-- 内容区 -->
       <el-main>
+         <!-- <el-breadcrumb separator-class="el-icon-arrow-right">
+            <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
+            <el-breadcrumb-item>用户管理</el-breadcrumb-item>
+            <el-breadcrumb-item>用户列表</el-breadcrumb-item>
+        </el-breadcrumb> -->
          <router-view></router-view>
       </el-main>
     </el-container>
@@ -62,10 +67,16 @@ export default {
   components: {
     // HelloWorld
   },
+  watch: {
+    $route(to,from){
+      console.log(to);
+   }
+  },
   data() {
     return {
       // 左侧菜单数据
       menulist: [],
+      breadCrumbItems: [],// 面包屑数组
       iconsObj: {
         '125': 'iconfont icon-user',
         '103': 'iconfont icon-tijikongjian',
@@ -93,7 +104,7 @@ export default {
       const { data: res } = await this.$http.get('menus')
       if (res.meta.status !== 200) return this.$message.error(res.meta.msg)
       this.menulist = res.data
-      console.log(res)
+      console.log('菜单列表',res)
     },
      // 点击按钮，切换菜单的折叠与展开
     toggleCollapse() {
@@ -109,7 +120,16 @@ export default {
 </script>
 <style lang="less" scoped>
 .home-container {
-  height: 100%;
+  position: absolute;
+  top: 0;
+  // z-index: -5;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  overflow-y: auto;
+  // &::-webkit-scrollbar {
+  //     display: none;
+  //   }
 }
 .el-header{
   background-color: #373d41;

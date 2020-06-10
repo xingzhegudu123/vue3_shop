@@ -2,6 +2,11 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 Vue.use(VueRouter)
 
+const originalPush = VueRouter.prototype.push
+   VueRouter.prototype.push = function push(location) {
+   return originalPush.call(this, location).catch(err => err)
+  //  或将push改成replace
+}
 const routes = [
   {
     path: '/',
@@ -23,11 +28,24 @@ const routes = [
     children:[
       {
         path: '/welcome',
+        meta: { title: '首页'},
         component: () => import('../components/Welcome.vue')
       },
       {
         path: '/users',
+        name: '/users',
+        meta: { title: '用户列表'},
         component: () => import('../components/user/Users.vue')
+      },
+      {
+        path: '/rights',
+        name: 'rights',
+        component: () => import('../components/power/Rights.vue')
+      },
+      {
+        path: '/roles',
+        name: 'roles',
+        component: () => import('../components/power/Roles.vue')
       }  
     ]
   },
@@ -35,7 +53,7 @@ const routes = [
     path: '/login',
     name: 'login',
     component: () => import('../components/Login.vue')
-  }
+  },
 
 ]
 

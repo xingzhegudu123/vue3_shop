@@ -1,10 +1,10 @@
 <template>
   <div>
-    <el-breadcrumb separator-class="el-icon-arrow-right">
+    <!-- <el-breadcrumb separator-class="el-icon-arrow-right">
         <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
         <el-breadcrumb-item>用户管理</el-breadcrumb-item>
         <el-breadcrumb-item>用户列表</el-breadcrumb-item>
-    </el-breadcrumb>
+    </el-breadcrumb> -->
      <!-- 卡片视图区域 -->
     <el-card>
       <!-- 搜索与添加区域 -->
@@ -346,27 +346,28 @@ export default {
       this.$message.success('删除用户成功！')
       this.getUserList()
     },
+    // 分配角色---------------------------------------
      // 展示分配角色的对话框
     async setRole(userInfo) {
       this.userInfo = userInfo
 
-      // 在展示对话框之前，获取所有角色的列表
+      // 在展示对话框之前( this.setRoleDialogVisible = true之前)，获取所有角色的列表
       const { data: res } = await this.$http.get('roles')
       if (res.meta.status !== 200) {
         return this.$message.error('获取角色列表失败！')
       }
 
-      this.rolesList = res.data
+      this.rolesList = res.data; // 角色下拉框
 
       this.setRoleDialogVisible = true
     },
-    // 点击按钮，分配角色
+    // 分配角色--点击确定
     async saveRoleInfo() {
       if (!this.selectedRoleId) {
         return this.$message.error('请选择要分配的角色！')
       }
 
-      const { data: res } = await this.$http.put(
+      const { data: res } = await this.$http.put(  // 传递用户id和角色id
         `users/${this.userInfo.id}/role`,
         {
           rid: this.selectedRoleId
