@@ -66,3 +66,6 @@ table {
 .el-pagination{
 	margin-top: 15px;
 }
+.el-cascader-menu {
+	height: 300px;
+  }
