@@ -41,7 +41,7 @@
           </template>
         </el-table-column>
         <el-table-column label="操作">
-          <template slot-scope="scope">
+          <template>
             <el-button size="mini" type="primary" icon="el-icon-edit" @click="showBox"></el-button>
             <el-button size="mini" type="success" icon="el-icon-location" @click="showProgressBox"></el-button>
           </template>
@@ -70,13 +70,13 @@
     </el-dialog>
      <!-- 展示物流进度的对话框 -->
     <el-dialog title="物流进度" :visible.sync="progressVisible" width="50%">
-      <div>33333333333</div>
+      <!-- <div>33333333333</div> -->
       <!-- 时间线 -->
-      <!-- <el-timeline>
+      <el-timeline>
         <el-timeline-item v-for="(activity, index) in progressInfo" :key="index" :timestamp="activity.time">
           {{activity.context}}
         </el-timeline-item>
-      </el-timeline> -->
+      </el-timeline>
     </el-dialog>
    </div>
 </template>
