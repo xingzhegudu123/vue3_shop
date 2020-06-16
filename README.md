@@ -39,7 +39,9 @@
     - 查看运行服务:pm2 ls 重启: pm2 resart 名称或id--停止: pm2 stop 名称或id -- 删除:pm2 delete 名称或id)
 
 ## 运行后台
-先git clone喵喵电影后台---cnpm install安装node_moudules---连接数据库 cd到mongod的bin目录下： mongod --dbpath= 'db'数据库配置文件存放的路径--npm start启动
+- git clone vue3_shop(vue_api_server为后台文件,vue3_shop_dispose为部署文件)项目
+- 安装phpStudy集成环境--启用mysql数据库--修改数据库root密码创建新数据库(如mydb)设置用户名密码--去api(vue_api_server)资源目录的config>default.json修改db_config里的'user'和'password'(与新数据库用户名密码一致)
+- 导入vue_api_server\db下数据库文件--npm安装依赖--node app.js启动
 ## 运行前端
 npm install
 ### Compiles and hot-reloads for development
