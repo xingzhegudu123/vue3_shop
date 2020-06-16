@@ -44,7 +44,7 @@
 - 导入vue_api_server\db下数据库文件--npm安装依赖--node app.js启动
 ## 运行前端
 - npm install安装依赖--npm run serve启动--npm run build--npm run test测试
-### 运行效果
+## 运行效果
 ![image](https://github.com/xingzhegudu123/vue3_shop/blob/prod/run_img/200.png)
 ![image](https://github.com/xingzhegudu123/vue3_shop/blob/prod/run_img/235.png)
 ![image](https://github.com/xingzhegudu123/vue3_shop/blob/prod/run_img/300.png)
