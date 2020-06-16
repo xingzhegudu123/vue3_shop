@@ -1,4 +1,4 @@
 ## vue3_shop
-Need to switch to 1.0 to see the operation effect
+Master branch code is consistent with 1.0 branch, but, need to switch to 1.0 to see the effect
 ```
 
