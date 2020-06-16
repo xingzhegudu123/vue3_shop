@@ -42,7 +42,7 @@
 - 安装phpStudy集成环境--启用mysql数据库--修改数据库root密码创建新数据库(如mydb)设置用户名密码--去api(vue_api_server)资源目录的config>default.json修改db_config里的'user'和'password'(与新数据库用户名密码一致)https://blog.csdn.net/weixin_43845044/article/details/105046505
 - 导入vue_api_server\db下数据库文件--npm安装依赖--node app.js启动
 ## 运行前端
-- npm install安装依赖--npm run serve启动--npm run build--npm run test测试
+- npm install安装依赖--npm run serve启动--npm run build打包--npm run test测试
 ## 运行效果
 ![image](https://github.com/xingzhegudu123/vue3_shop/blob/prod/run_img/200.png)
 ![image](https://github.com/xingzhegudu123/vue3_shop/blob/prod/run_img/235.png)
