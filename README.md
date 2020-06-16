@@ -1,15 +1,16 @@
 # vue3_shop
 
-本项目为Vue3构建电商后台管理系统,.主要实现的功能有：框架结构搭建,用户管理增删改查,角色分配。权限管理, 商品管理, 订单管理数据统计等。
+本项目为Vue3构建电商后台管理系统,.主要实现的功能有：框架结构搭建, 用户管理增删改查,角色分配。权限管理, 商品管理, 订单管理数据统计等。
  - 涉及的技术点有:Tree 树形控件+递归展示角色列表,  Steps 步骤条+tabs标签页+from表单校验实现添加商品, Cascader 级联选择器展示分类商品和省市区联动,表格展开收起tree-table三级表格,复用dialog对话框, 上传图片, 富文本, Timeline 时间线展示物流信息。 echarts展示数据报表, 项目打包优化等
 ## get 技能
 - 项目结构搭建: vue ui可视化搭建项目安装依赖, 侧边栏与导航栏搭建基本结构, 面包屑,eslint语法警告处理
+- 用户管理: 用户增删改查,分配角色
 - 权限管理: 
   - 展示角色默认权限:  Tree树形控件+递归的形式，获取角色下所有三级权限的id，并保存到 默认数组中 
   - 权限分配: 弹出树形框时保存当前角色id, 根据接口定义,获得全选半选id数组,传参即可。
   - 用户管理分配角色: 调接口传参
 - 商品管理:  
-  - 添加商品: Steps 步骤条+tabs标签页+from表单校验实现。
+  - 添加商品: Steps 步骤条+tabs标签页实现联动,from表单提交数据。
   - 添加参数: Cascader联动目录下为某商品(修改删除)动态参数(型号,颜色)和静态属性(名称,功耗),
   - 添加分类：(如在三级展开收起表格下大家电/电视添加海信商品)
 - 数据统计: echarts: 1导入echarts---2 为ECharts准备一个具备大小（宽高）的Dom--3 echarts.init初始化获取的dom--4 echarts实例setOption()展示数据
@@ -23,7 +24,7 @@
   - babel.config.js中通过process.env.NODE_ENV判断开发还是生产环境,利用babel-plugin-transform-remove-console仅去除开发环境console.log
   - 生成打包报告:通过vue ui可视化通过输出和分析仪表盘查看各种依赖包大小
 - 打包优化(首屏加载慢)   
-  - 为开发和发布指定不同打包入口: 定义两main入口,vue.config通过chainWebpack(config.when)指定不同入口。
+  - 为开发和发布指定不同打包入口: 定义两main文件,vue.config通过chainWebpack(config.when)指定不同入口。
   - CDN引入: import引入的依赖包会合在一个文件导致体积过大? vue.config通过externals声明哪些依赖包不会打包, main中注释掉import文件,index.html已cdn链接引入js,css(包括element)
   - 首页内容定制：为不同环境展示不同首页标题:vue.config.js通过 config.plugin('html')定义boolean变量, index.html利用nodeJs(%)语法判断
   - 路由-组件-图片懒加载: 按需引入import或bable.config设置@babel/plugin-syntax-dynamic-import
@@ -44,11 +45,11 @@ npm install
 ### Compiles and hot-reloads for development
 npm run serve
 ### Compiles and minifies for production
-yarn run build
-### Run your tests
 npm run build
-### Lints and fixes files
+### Run your tests
 npm run test
+### Lints and fixes files
+
 ### 运行效果
 ![image](https://github.com/xingzhegudu123/fly-vue3-demo/blob/dev/run_effect/1530.png)
 ![image](https://github.com/xingzhegudu123/fly-vue3-demo/blob/dev/run_effect/756.png)
